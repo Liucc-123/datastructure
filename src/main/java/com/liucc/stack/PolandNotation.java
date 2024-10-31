@@ -53,7 +53,7 @@ public class PolandNotation {
                 s2.add(s);
             } else if (")".equals(s)) {
                 // [遇到括号] 如果是右括号“）”，则依次弹出s1栈顶的运算符，并压入s2，直到遇到左括号为止，此时将这一对括号丢弃
-                while (!s1.isEmpty() && !")".equals(s1.peek())){
+                while (!s1.isEmpty() && !"(".equals(s1.peek())){
                     s2.add(s1.pop());
                 }
                 // 弹出左括号
@@ -191,7 +191,8 @@ class Operation {
         try {
             boolean result = map.get(oper1) > map.get(oper2);
         } catch (Exception e) {
-            throw new RuntimeException("不是操作运算符");
+//            throw new RuntimeException("不是操作运算符");
+            System.out.println("不是操作运算符");
         }
         return map.get(oper1) > map.get(oper2);
     }
